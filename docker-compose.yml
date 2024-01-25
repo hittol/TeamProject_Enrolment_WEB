@@ -1,0 +1,10 @@
+version: '2.6'
+
+services:
+  httpd:
+    container_name: httpd
+    build: ./build
+    volumes:
+      - ./build/htdocs/:/var/www/html
+    ports:
+      - "80:80"
