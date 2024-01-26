@@ -1,10 +1,18 @@
-version: '2.6'
+version: '3.8'
 
 services:
   httpd:
-    container_name: httpd
-    build: ./build
+    container_name: project_httpd
+    build: ./httpd
     volumes:
-      - ./build/htdocs/:/var/www/html
+      - ./httpd/htdocs/:/var/www/html
     ports:
       - "80:80"
+
+  tomcat:
+    container_name: project_tomcat
+    build: ./tomcat
+    volumes:
+      - ./tomcat/was/:/sw/apache-tomcat-9.0.85/webapps/ROOT/  
+    expose:
+      - "8009"
