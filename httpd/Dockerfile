@@ -20,6 +20,7 @@ RUN wget -P ~ https://dlcdn.apache.org/tomcat/tomcat-connectors/jk/tomcat-connec
 ADD ./conf/httpd.conf /etc/httpd/conf/httpd.conf
 ADD ./conf/mod_jk.conf /etc/httpd/conf/mod_jk.conf
 ADD ./conf/workers.properties /etc/httpd/conf/workers.properties
+ADD ./conf/uri.properties /etc/httpd/conf/uri.properties
 
 EXPOSE 80
 
