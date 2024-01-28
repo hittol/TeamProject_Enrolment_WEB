@@ -12,7 +12,7 @@
     <%
         //MariaDB 준비
         Connection conn = null;
-        String dbURL = "jdbc:mariadb://localhost:3306/my_project";
+        String dbURL = "jdbc:mariadb://mariadb-host_ip:3306/my_project";
         String dbID = "admin";
         String dbPwd = "soldesk1.";      
         //MariaDB 연동
