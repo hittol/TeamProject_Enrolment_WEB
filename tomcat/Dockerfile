@@ -29,6 +29,8 @@ ENV PATH=$PATH:$CATALINA_HOME/bin
 
 ADD ./conf/server.xml /sw/apache-tomcat-9.0.85/conf/server.xml
 
+COPY ./was /sw/apache-tomcat-9.0.85/webapps/ROOT/
+
 # Insatll MariaDB connector 
 RUN wget -P ~/ https://dlm.mariadb.com/1965742/Connectors/java/connector-java-2.7.5/mariadb-java-client-2.7.5.jar  --no-check-certificate \
   && cd ~ \

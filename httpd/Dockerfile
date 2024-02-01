@@ -22,6 +22,8 @@ ADD ./conf/mod_jk.conf /etc/httpd/conf/mod_jk.conf
 ADD ./conf/workers.properties /etc/httpd/conf/workers.properties
 ADD ./conf/uri.properties /etc/httpd/conf/uri.properties
 
+COPY ./htdocs /var/www/html
+
 EXPOSE 80
 
 # Simple startup script to avoid some issues observed with container restart 
