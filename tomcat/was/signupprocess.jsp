@@ -3,13 +3,16 @@
 <%@ page import="javax.naming.Context" %>
 <%@ page import="javax.naming.InitialContext" %>
 <%@ page import="javax.sql.DataSource" %>
-
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>SignUpProcess</title>
+    <link href="./webimages/tappagelogo.png" rel="shortcut icon" />
+    <link href="./webimages/tappagelogo.png" rel="apple-touch-icon"/>
+    <title>회원가입 | 수강신청사이트</title>
 </head>
+
+<script src="sweetalert.min.js"></script>
 
 <body>  
     <%
@@ -45,8 +48,14 @@
             pstmt.executeUpdate();     
     %>            
         <script type="text/javascript">
-            alert("회원가입을 축하합니다.\n확인을 누르면 로그인창으로 돌아갑니다.");
-            location.href='Main.html'
+            swal.fire({
+                icon : "success",
+                title : "회원가입을 축하합니다!",
+                text : "확인을 누르면 로그인창으로 돌아갑니다."
+            }).then(function(){
+	                location.href='Main.html'                  
+            })   
+
         </script>
    <%                        
         } catch(SQLException ex) {

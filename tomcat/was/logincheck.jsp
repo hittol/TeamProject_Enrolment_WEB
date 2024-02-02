@@ -8,8 +8,12 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>SignUpProcess</title>
+    <link href="./webimages/tappagelogo.png" rel="shortcut icon" />
+    <link href="./webimages/tappagelogo.png" rel="apple-touch-icon"/>
+    <title>수강신청사이트</title>
 </head>
+
+<script src="sweetalert.min.js"></script>
 
 <body>  
     <%
@@ -42,25 +46,46 @@
     %>
 
                 <script type="text/javascript">
-                alert("수강신청 사이트에 오신것을 환영합니다!\n확인을 누르면 수강신청 창으로 이동합니다.")
-                location.href='application.jsp?stud_name=<%= stud_name %>' + '&log_id=<%= log_id %>'      
+
+                swal.fire({
+                    icon : "success",
+                    title : "로그인 성공!",
+                    text : "로그인되었습니다."
+
+                }).then(function(){
+	                location.href='application.jsp?stud_name=<%= stud_name %>' + '&log_id=<%= log_id %>'                  
+                })     
                 </script>
 
     <%
             }
             else{
-    %>            
+    %>               
                 <script type="text/javascript">
-                alert("비밀번호가 틀렸습니다.")
-                location.href='Main.html'
+
+                swal.fire({
+                    icon : "warning",
+                    title : "로그인 실패!",
+                    text : "비밀번호를 확인해 주세요."
+                }).then(function(){
+	                location.href='Main.html'              
+                })  
+
                 </script>  
     <%  
             }
         }else{
     %>           
                 <script type="text/javascript">
-                alert("아이디가 틀렸습니다.")
-                location.href='Main.html'
+
+                swal.fire({
+                    icon : "warning",
+                    title : "로그인 실패!",
+                    text : "아이디를 확인해 주세요."
+                }).then(function(){
+	                location.href='Main.html'              
+                })
+
                 </script> 
     <%                   
         }
