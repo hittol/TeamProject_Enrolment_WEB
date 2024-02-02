@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@page import="java.sql.*" %>
+<%@ page import="javax.naming.Context" %>
+<%@ page import="javax.naming.InitialContext" %>
+<%@ page import="javax.sql.DataSource" %>
 
 <!DOCTYPE html>
 <html>
@@ -10,12 +13,13 @@
 
 <body>  
     <%
-        Connection conn = null;
-        String dbURL = "jdbc:mariadb://mariadb-host_ip:3306/my_project";
-        String dbID = "admin";
-        String dbPwd = "soldesk1.";      
-        Class.forName("org.mariadb.jdbc.Driver");
-        conn = DriverManager.getConnection(dbURL, dbID, dbPwd);
+		Connection conn = null;
+
+        Context initCtx = new InitialContext();
+        Context envCtx = (Context)initCtx.lookup("java:comp/env");
+        DataSource ds = (DataSource)envCtx.lookup("project_mariadb");
+
+        conn = ds.getConnection();
     %>
     
     <%

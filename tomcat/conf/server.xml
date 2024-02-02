@@ -43,6 +43,19 @@
               description="User database that can be updated and saved"
               factory="org.apache.catalina.users.MemoryUserDatabaseFactory"
               pathname="conf/tomcat-users.xml" />
+
+    <Resource name="project_mariadb"
+              auth="Container"
+              type="javax.sql.DataSource"
+              driverClassName="org.mariadb.jdbc.Driver"
+              url="jdbc:mariadb://mariadb-host_ip:3306/my_project"
+              username="admin"
+              password="soldesk1."
+              maxWaitMillis="1000"
+              maxTotal="100"
+              maxIdle="10"
+              initialSize="5" /> 
+
   </GlobalNamingResources>
 
   <!-- A "Service" is a collection of one or more "Connectors" that share

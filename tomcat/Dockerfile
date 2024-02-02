@@ -28,6 +28,7 @@ ENV CATALINA_HOME=/sw/apache-tomcat-9.0.85
 ENV PATH=$PATH:$CATALINA_HOME/bin
 
 ADD ./conf/server.xml /sw/apache-tomcat-9.0.85/conf/server.xml
+ADD ./conf/context.xml /sw/apache-tomcat-9.0.85/conf/context.xml
 
 COPY ./was /sw/apache-tomcat-9.0.85/webapps/ROOT/
 
